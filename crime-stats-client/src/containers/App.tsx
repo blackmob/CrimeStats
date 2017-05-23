@@ -18,7 +18,7 @@ const muiTheme = getMuiTheme({
     accent1Color: deepOrange500,
   },
 });
-class App extends React.Component<{}, null> {
+export default class App extends React.Component<any, any> {
   handleTouchTap = () => {
       console.log('touched');
     }
@@ -38,5 +38,3 @@ class App extends React.Component<{}, null> {
     );
   }
 }
-
-export default App;

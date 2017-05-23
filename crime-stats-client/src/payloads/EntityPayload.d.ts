@@ -1,0 +1,4 @@
+interface EntityPayload
+{
+    entities : any;
+}

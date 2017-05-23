@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './App';
+import Routes from './containers/routes';
 import registerServiceWorker from './registerServiceWorker';
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -8,8 +8,20 @@ import * as injectTapEventPlugin from 'react-tap-event-plugin';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
-);
+renderWithHotReload(Routes);
+
 registerServiceWorker();
+
+// Hot Module Replacement API
+if (module.hot) {
+    module.hot.accept('./containers/routes', () => {
+        const RootElement = require('./containers/routes').Routes;
+        renderWithHotReload(RootElement);
+    });
+}
+
+function renderWithHotReload(RoutesElement : any) {
+    ReactDOM.render(
+        <Routes/>,
+        document.getElementById('root'));
+}
