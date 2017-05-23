@@ -1,0 +1,1 @@
+docker run --rm -v C:/Repos/CrimeStats/crime-stats-client/src:/local swaggerapi/swagger-codegen-cli generate -c /local/services/swagger-options.json -i /local/services/swagger.json  -l typescript-fetch -o /local/services

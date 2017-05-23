@@ -1,0 +1,431 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1",
+        "title": "CrimeStats.Services"
+    },
+    "host": "localhost:54054",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [],
+    "produces": [],
+    "paths": {
+        "/odata/ReportedCrimes": {
+            "get": {
+                "tags": [
+                    "ReportedCrimes"
+                ],
+                "summary": "Returns the EntitySet ReportedCrimes",
+                "operationId": "ReportedCrimes_GetReportedCrimes_1",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a Boolean condition.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$select",
+                        "in": "query",
+                        "description": "Selects which properties to include in the response.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$orderby",
+                        "in": "query",
+                        "description": "Sorts the results.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$count",
+                        "in": "query",
+                        "description": "Includes a count of the matching results in the response.",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[ReportedCrime]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "ReportedCrimes"
+                ],
+                "summary": "Post a new entity to EntitySet ReportedCrimes",
+                "operationId": "ReportedCrimes_Post",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "reportedCrime",
+                        "in": "body",
+                        "description": "The entity to post",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReportedCrime"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/odata/ReportedCrimes({id})": {
+            "get": {
+                "tags": [
+                    "ReportedCrimes"
+                ],
+                "summary": "Returns the entity with the key from ReportedCrimes",
+                "operationId": "ReportedCrimes_GetReportedCrimeById",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "key: id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$select",
+                        "in": "query",
+                        "description": "Selects which properties to include in the response.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ReportedCrime"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "ReportedCrimes"
+                ],
+                "summary": "Replace entity in EntitySet ReportedCrimes",
+                "operationId": "ReportedCrimes_PutById",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "key: id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "ReportedCrime",
+                        "in": "body",
+                        "description": "The entity to put",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReportedCrime"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "ReportedCrimes"
+                ],
+                "summary": "Delete entity in EntitySet ReportedCrimes",
+                "operationId": "ReportedCrimes_DeleteById",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "key: id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "If-Match",
+                        "in": "header",
+                        "description": "If-Match header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "ReportedCrimes"
+                ],
+                "summary": "Update entity in EntitySet ReportedCrimes",
+                "operationId": "ReportedCrimes_PatchById",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "key: id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "ReportedCrime",
+                        "in": "body",
+                        "description": "The entity to patch",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReportedCrime"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/odata/": {
+            "get": {
+                "tags": [
+                    "ReportedCrimes"
+                ],
+                "operationId": "ReportedCrimes_GetReportedCrimes_2",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a Boolean condition.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$select",
+                        "in": "query",
+                        "description": "Selects which properties to include in the response.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$orderby",
+                        "in": "query",
+                        "description": "Sorts the results.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$count",
+                        "in": "query",
+                        "description": "Includes a count of the matching results in the response.",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[ReportedCrime]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "definitions": {
+        "ODataResponse[List[ReportedCrime]]": {
+            "type": "object",
+            "properties": {
+                "@odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ReportedCrime"
+                    }
+                }
+            }
+        },
+        "ReportedCrime": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "month": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "reportedBy": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "fallsWithin": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "longitude": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "latitude": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "location": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "lsoaCode": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "lsoaName": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "crimetype": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                }
+            }
+        },
+        "Object": {
+            "type": "object",
+            "properties": {}
+        }
+    },
+    "parameters": {},
+    "responses": {},
+    "securityDefinitions": {},
+    "security": [],
+    "tags": []
+}
