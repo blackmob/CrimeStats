@@ -1,9 +1,11 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import { applyMiddleware, createStore } from 'redux';
+
 import { browserHistory } from 'react-router';
 import logger from 'redux-logger';
-import { routerMiddleware } from 'react-router-redux';
 import reducer from '../reducers/';
+import { routerMiddleware } from 'react-router-redux';
+import thunk from 'redux-thunk';
+
 //import DevTools from '../containers/DevTools';
 
 const enableHotLoader = (store: any) => {
@@ -15,15 +17,13 @@ const enableHotLoader = (store: any) => {
     }
 };
 
-const initialState = {};
-
 const reduxRouterMiddleware = routerMiddleware(browserHistory as any);
+declare var window : any;
 
-const createStoreWithMiddleware = compose(
-  applyMiddleware( thunk , reduxRouterMiddleware, logger as any, routerMiddleware(browserHistory as any))
-)(createStore);
-
-const store = createStoreWithMiddleware(reducer, initialState);
+const store = createStore(
+ reducer,
+ applyMiddleware(thunk , reduxRouterMiddleware, logger as any, routerMiddleware(browserHistory as any)),
+  window.devToolsExtension ? window.devToolsExtension() : undefined)
 
 enableHotLoader(store);
 

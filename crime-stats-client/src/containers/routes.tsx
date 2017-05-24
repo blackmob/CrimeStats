@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+
+import { Route, Router, browserHistory } from 'react-router';
+
+import App from './App';
 import store from '../store';
 import { syncHistoryWithStore } from 'react-router-redux';
-import App from './App';
 
 const history = syncHistoryWithStore(browserHistory as any, store);
 

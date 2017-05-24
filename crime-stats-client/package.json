@@ -35,6 +35,7 @@
     "@types/redux-devtools": "^3.0.37",
     "@types/redux-devtools-dock-monitor": "^1.1.30",
     "@types/redux-devtools-log-monitor": "^1.0.30",
+    "@types/redux-logger": "^3.0.0",
     "react-scripts-ts": "2.0.1",
     "redux-devtools": "3.4.0",
     "redux-devtools-dock-monitor": "1.1.2",
