@@ -25,7 +25,7 @@ export const receiveDataRequest = createAction<EntityPayload>(
 export const fetchCrimeData = () => {
     return (dispatch : any, getState : any) => {
         dispatch(beginFetch());        
-        return api.reportedCrimesGetReportedCrimes1({$Top : 3})(fetch, 'http://localhost:1234').then((response)=>{
+        return api.reportedCrimesGetReportedCrimes1({$Top: 10})(fetch, 'http://localhost:54054').then((response)=>{
             dispatch(receiveDataRequest(normalize(response.value, arrayOfReportedCrime)));
             dispatch(endFetch());
         }).catch((e) => {

@@ -1,14 +1,13 @@
-import { applyMiddleware, createStore } from 'redux';
-
-import { browserHistory } from 'react-router';
+import { applyMiddleware, createStore, compose } from 'redux';
+import { browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
 import logger from 'redux-logger';
 import reducer from '../reducers/';
-import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
-
-//import DevTools from '../containers/DevTools';
+import * as injectTapEventPlugin from 'react-tap-event-plugin';
 
 const enableHotLoader = (store: any) => {
+
     if (module.hot) {
         module.hot.accept('../reducers', () => {
             const nextRootReducer = require('../reducers').default;
@@ -17,14 +16,27 @@ const enableHotLoader = (store: any) => {
     }
 };
 
-const reduxRouterMiddleware = routerMiddleware(browserHistory as any);
 declare var window : any;
 
-const store = createStore(
- reducer,
- applyMiddleware(thunk , reduxRouterMiddleware, logger as any, routerMiddleware(browserHistory as any)),
-  window.devToolsExtension ? window.devToolsExtension() : undefined)
+export default configureStore();
 
-enableHotLoader(store);
+export function configureStore() { 
 
-export default store;
+        // Needed for onTouchTap
+        // http://stackoverflow.com/a/34015469/988941
+        injectTapEventPlugin();    
+
+        const finalCreateStore = compose(
+            applyMiddleware(thunk),
+            applyMiddleware(logger as any),
+        )(createStore); 
+
+    const store = finalCreateStore(reducer,
+     window.devToolsExtension ? window.devToolsExtension() : undefined ) as Redux.Store<RootState>;
+
+    syncHistoryWithStore(browserHistory as any, { ...store });
+
+    enableHotLoader(store);
+
+    return store;
+}

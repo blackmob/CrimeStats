@@ -14,6 +14,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace CrimeStats.Services
 {
+    using System.Web.Http.Cors;
 
     public static class WebApiConfig
     {
@@ -29,6 +30,9 @@ namespace CrimeStats.Services
             config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{action}/{id}",
                 new { id = RouteParameter.Optional }
             );
+
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
             var builder = GenerateEdmModel();
             builder.EnableLowerCamelCase();

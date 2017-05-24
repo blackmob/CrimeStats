@@ -1,4 +1,4 @@
-const routerReducer = require('react-router-redux').routerReducer;
+import {routerReducer} from 'react-router-redux';
 import { combineReducers } from 'redux';
 import entities from './entities';
 

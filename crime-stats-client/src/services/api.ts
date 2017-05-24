@@ -128,13 +128,13 @@ export const ReportedCrimesApiFetchParamCreator = {
         const baseUrl = `/odata/ReportedCrimes`;
         let urlObj = url.parse(baseUrl, true);
         urlObj.query = Object.assign({}, urlObj.query, {
-            "$expand": params["$Expand"],
-            "$filter": params["$Filter"],
-            "$select": params["$Select"],
-            "$orderby": params["$Orderby"],
+            //"$expand": params["$Expand"],
+            //"$filter": params["$Filter"],
+            //"$select": params["$Select"],
+            //"$orderby": params["$Orderby"],
             "$top": params["$Top"],
-            "$skip": params["$Skip"],
-            "$count": params["$Count"],
+            //"$skip": params["$Skip"],
+            //"$count": params["$Count"],
         });
         let fetchOptions: RequestInit = Object.assign({}, { method: "GET" }, options);
 
