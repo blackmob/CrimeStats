@@ -10,9 +10,8 @@
  * Do not edit the class manually.
  */
 
-import * as url from "url";
-
 import * as isomorphicFetch from "isomorphic-fetch";
+import * as url from "url";
 
 interface Dictionary<T> { [index: string]: T; }
 export interface FetchAPI { (url: string, init?: any): Promise<any>; }
@@ -124,18 +123,10 @@ export const ReportedCrimesApiFetchParamCreator = {
      * @param $Skip Skips the first n results.
      * @param $Count Includes a count of the matching results in the response.
      */
-    reportedCrimesGetReportedCrimes1(params: {  "$Expand"?: string; "$Filter"?: string; "$Select"?: string; "$Orderby"?: string; "$Top"?: number; "$Skip"?: number; "$Count"?: boolean; }, options?: any): FetchArgs {
+    reportedCrimesGetReportedCrimes1(params: {  "$expand"?: string; "$filter"?: string; "$select"?: string; "$orderby"?: string; "$op"?: number; "$skip"?: number; "$count"?: boolean; }, options?: any): FetchArgs {
         const baseUrl = `/odata/ReportedCrimes`;
         let urlObj = url.parse(baseUrl, true);
-        urlObj.query = Object.assign({}, urlObj.query, {
-            //"$expand": params["$Expand"],
-            //"$filter": params["$Filter"],
-            //"$select": params["$Select"],
-            //"$orderby": params["$Orderby"],
-            "$top": params["$Top"],
-            //"$skip": params["$Skip"],
-            //"$count": params["$Count"],
-        });
+        urlObj.query = Object.assign({}, urlObj.query, params);
         let fetchOptions: RequestInit = Object.assign({}, { method: "GET" }, options);
 
         let contentTypeHeader: Dictionary<string> = {};
@@ -320,7 +311,7 @@ export const ReportedCrimesApiFp = {
      * @param $Skip Skips the first n results.
      * @param $Count Includes a count of the matching results in the response.
      */
-    reportedCrimesGetReportedCrimes1(params: { "$Expand"?: string; "$Filter"?: string; "$Select"?: string; "$Orderby"?: string; "$Top"?: number; "$Skip"?: number; "$Count"?: boolean;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<ODataResponseListReportedCrime> {
+    reportedCrimesGetReportedCrimes1(params: { "$expand"?: string; "$filter"?: string; "$select"?: string; "$orderby"?: string; "$top"?: number; "$skip"?: number; "$count"?: boolean;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<ODataResponseListReportedCrime> {
         const fetchArgs = ReportedCrimesApiFetchParamCreator.reportedCrimesGetReportedCrimes1(params, options);
         return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
             return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {

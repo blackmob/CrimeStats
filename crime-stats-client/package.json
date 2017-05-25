@@ -5,6 +5,7 @@
   "dependencies": {
     "@types/isomorphic-fetch": "0.0.34",
     "@types/jest": "^19.2.3",
+    "@types/lodash": "^4.14.64",
     "@types/material-ui": "^0.17.7",
     "@types/node": "^7.0.22",
     "@types/normalizr": "^2.0.18",
