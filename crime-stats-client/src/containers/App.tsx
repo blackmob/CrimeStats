@@ -43,8 +43,6 @@ const styles = {
 };
 
 
-
-
 const muiTheme = getMuiTheme({
   palette: {
     accent1Color: deepOrange500,
@@ -92,7 +90,7 @@ class App extends React.Component<AppProps, any> {
                     <TableRowColumn style={styles.titleStyle}>{c.reportedBy}</TableRowColumn>
                     <TableRowColumn>{c.fallsWithin}</TableRowColumn>
                     <TableRowColumn>{c.location}</TableRowColumn>
-                    <TableRowColumn style={styles.titleStyle}>{c.crimetype}</TableRowColumn>
+                    <TableRowColumn >{c.crimetype}</TableRowColumn>
                   </TableRow>
               )}
             </TableBody>
